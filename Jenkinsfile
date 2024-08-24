@@ -4,9 +4,9 @@ environment{
     PATH = "/opt/apache-maven-3.9.8/bin:$PATH"
 }
     stages {
-        stage('Clone') {
+        stage('build') {
             steps {
-                git branch: 'main' , url: "https://github.com/AbdulrahmanElfeki/hello-world.git"
+                sh 'mvn clean deploy -Dmaven.test.skip=true'
             }
         }
     }
